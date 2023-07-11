@@ -1,0 +1,972 @@
+object Form1: TForm1
+  Left = 231
+  Top = 179
+  Width = 889
+  Height = 475
+  Caption = 'EEG by Yasin'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 8
+    Top = 8
+    Width = 857
+    Height = 417
+    ActivePage = TabSheet2
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Realtime'
+      object Label1: TLabel
+        Left = 8
+        Top = 152
+        Width = 58
+        Height = 13
+        Caption = 'PWM TEST'
+      end
+      object Button6: TButton
+        Left = 8
+        Top = 172
+        Width = 129
+        Height = 25
+        Caption = 'Dorsiflexion 12 degree'
+        TabOrder = 0
+        OnClick = Button6Click
+      end
+      object Button7: TButton
+        Left = 8
+        Top = 204
+        Width = 129
+        Height = 25
+        Caption = 'Initial Position'
+        TabOrder = 1
+        OnClick = Button7Click
+      end
+      object Button8: TButton
+        Left = 8
+        Top = 236
+        Width = 129
+        Height = 25
+        Caption = 'Plantarflexion 55 degree'
+        TabOrder = 2
+        OnClick = Button8Click
+      end
+      object Chart1: TChart
+        Left = 144
+        Top = 152
+        Width = 697
+        Height = 233
+        BackWall.Brush.Color = clWhite
+        BackWall.Brush.Style = bsClear
+        Legend.CheckBoxes = True
+        Title.Font.Color = clBlack
+        Title.Text.Strings = (
+          'Raw Data')
+        BottomAxis.Automatic = False
+        BottomAxis.AutomaticMaximum = False
+        BottomAxis.AutomaticMinimum = False
+        BottomAxis.Maximum = 3.000000000000000000
+        BottomAxis.Title.Caption = 'Time (s)'
+        LeftAxis.Grid.Visible = False
+        LeftAxis.Title.Caption = 'Amplitude ('#181'V)'
+        View3D = False
+        TabOrder = 3
+        PrintMargins = (
+          15
+          28
+          15
+          28)
+        object Label7: TLabel
+          Left = 616
+          Top = 72
+          Width = 13
+          Height = 13
+          Caption = 'C3'
+        end
+        object Label8: TLabel
+          Left = 616
+          Top = 120
+          Width = 13
+          Height = 13
+          Caption = 'C4'
+        end
+        object Edit1: TEdit
+          Left = 616
+          Top = 92
+          Width = 65
+          Height = 21
+          TabOrder = 0
+          Text = '0'
+        end
+        object Edit2: TEdit
+          Left = 616
+          Top = 140
+          Width = 65
+          Height = 21
+          TabOrder = 1
+          Text = '0'
+        end
+        object Series1: TLineSeries
+          Marks.Arrow.Visible = True
+          Marks.Callout.Brush.Color = clBlack
+          Marks.Callout.Arrow.Visible = True
+          Marks.Visible = False
+          Title = 'C3'
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.Name = 'X'
+          XValues.Order = loAscending
+          YValues.Name = 'Y'
+          YValues.Order = loNone
+        end
+        object Series2: TLineSeries
+          Marks.Arrow.Visible = True
+          Marks.Callout.Brush.Color = clBlack
+          Marks.Callout.Arrow.Visible = True
+          Marks.Visible = False
+          SeriesColor = clTeal
+          Title = 'C4'
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.Name = 'X'
+          XValues.Order = loAscending
+          YValues.Name = 'Y'
+          YValues.Order = loNone
+        end
+      end
+      object GroupBox1: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 217
+        Height = 129
+        Caption = 'Operation'
+        TabOrder = 4
+        object Button1: TButton
+          Left = 120
+          Top = 32
+          Width = 75
+          Height = 25
+          Caption = 'Start'
+          TabOrder = 0
+          OnClick = Button1Click
+        end
+        object Button2: TButton
+          Left = 120
+          Top = 64
+          Width = 75
+          Height = 25
+          Caption = 'Port Setting'
+          TabOrder = 1
+          OnClick = Button2Click
+        end
+        object Button3: TButton
+          Left = 120
+          Top = 96
+          Width = 75
+          Height = 25
+          Caption = 'Save File'
+          TabOrder = 2
+          OnClick = Button3Click
+        end
+        object GroupBox2: TGroupBox
+          Left = 8
+          Top = 24
+          Width = 97
+          Height = 97
+          Caption = 'Task'
+          TabOrder = 3
+          object RadioButton1: TRadioButton
+            Left = 8
+            Top = 24
+            Width = 81
+            Height = 17
+            Caption = 'Dorsiflexion'
+            TabOrder = 0
+          end
+          object RadioButton2: TRadioButton
+            Left = 8
+            Top = 56
+            Width = 81
+            Height = 17
+            Caption = 'Plantarflexion'
+            TabOrder = 1
+          end
+        end
+      end
+      object GroupBox3: TGroupBox
+        Left = 232
+        Top = 8
+        Width = 241
+        Height = 129
+        Caption = 'Time'
+        TabOrder = 5
+        object Label2: TLabel
+          Left = 8
+          Top = 87
+          Width = 65
+          Height = 26
+          Caption = 'REST'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -20
+          Font.Name = 'Elephant'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 8
+          Top = 24
+          Width = 64
+          Height = 13
+          Caption = 'Sequence (n)'
+        end
+        object Label4: TLabel
+          Left = 8
+          Top = 56
+          Width = 37
+          Height = 13
+          Caption = 'Time (s)'
+        end
+        object Edit3: TEdit
+          Left = 80
+          Top = 20
+          Width = 57
+          Height = 21
+          TabOrder = 0
+          Text = '0'
+        end
+        object Edit4: TEdit
+          Left = 80
+          Top = 52
+          Width = 57
+          Height = 21
+          TabOrder = 1
+          Text = '0'
+        end
+      end
+      object GroupBox4: TGroupBox
+        Left = 640
+        Top = 8
+        Width = 201
+        Height = 129
+        Caption = 'ERD/ERS'
+        TabOrder = 6
+        object Label5: TLabel
+          Left = 16
+          Top = 32
+          Width = 26
+          Height = 25
+          Caption = 'C3'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label6: TLabel
+          Left = 16
+          Top = 80
+          Width = 26
+          Height = 25
+          Caption = 'C4'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Edit5: TEdit
+          Left = 56
+          Top = 28
+          Width = 129
+          Height = 33
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          Text = '0'
+        end
+        object Edit6: TEdit
+          Left = 56
+          Top = 76
+          Width = 129
+          Height = 33
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -20
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          Text = '0'
+        end
+      end
+      object Button13: TButton
+        Left = 88
+        Top = 336
+        Width = 49
+        Height = 49
+        Caption = 'Clear'
+        TabOrder = 7
+      end
+      object GroupBox5: TGroupBox
+        Left = 480
+        Top = 8
+        Width = 153
+        Height = 129
+        Caption = 'Command Indicator'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        object Label9: TLabel
+          Left = 8
+          Top = 40
+          Width = 54
+          Height = 13
+          Caption = 'Dorsiflexion'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label10: TLabel
+          Left = 8
+          Top = 80
+          Width = 69
+          Height = 13
+          Caption = 'Plantar Flexion'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Analysis'
+      ImageIndex = 1
+      object PageControl2: TPageControl
+        Left = 0
+        Top = 0
+        Width = 849
+        Height = 393
+        ActivePage = TabSheet3
+        TabOrder = 0
+        object TabSheet3: TTabSheet
+          Caption = 'Pre-Processing'
+          object Chart2: TChart
+            Left = 88
+            Top = 4
+            Width = 753
+            Height = 165
+            BackWall.Brush.Color = clWhite
+            BackWall.Brush.Style = bsClear
+            Legend.CheckBoxes = True
+            Title.Font.Color = clBlack
+            Title.Text.Strings = (
+              'EEG Signal')
+            BottomAxis.Grid.Visible = False
+            BottomAxis.Title.Caption = 'Time (s)'
+            LeftAxis.Grid.Visible = False
+            LeftAxis.Title.Caption = 'Amplitude ('#181'V)'
+            View3D = False
+            TabOrder = 0
+            object Series3: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Callout.Length = 20
+              Marks.Visible = False
+              Title = 'Raw C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series4: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Callout.Length = 20
+              Marks.Visible = False
+              SeriesColor = clTeal
+              Title = 'Raw C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series5: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Callout.Length = 20
+              Marks.Visible = False
+              SeriesColor = clRed
+              Title = 'BPFed C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series6: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Callout.Length = 20
+              Marks.Visible = False
+              SeriesColor = clTeal
+              Title = 'BPFed C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+          end
+          object Chart3: TChart
+            Left = 88
+            Top = 184
+            Width = 753
+            Height = 177
+            Legend.CheckBoxes = True
+            Title.Font.Color = clBlack
+            Title.Text.Strings = (
+              'Frequency Domain of EEG Signal')
+            BottomAxis.Grid.Visible = False
+            BottomAxis.Title.Caption = 'Frequency (Hz)'
+            LeftAxis.Grid.Visible = False
+            LeftAxis.Title.Caption = 'Magnitude'
+            View3D = False
+            TabOrder = 1
+            object Series7: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              Title = 'Raw C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series8: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clTeal
+              Title = 'Raw C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series9: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clRed
+              Title = 'BPFed C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series10: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clTeal
+              Title = 'BPFed C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+          end
+          object Button5: TButton
+            Left = 0
+            Top = 8
+            Width = 81
+            Height = 25
+            Caption = 'Open File'
+            TabOrder = 2
+            OnClick = Button5Click
+          end
+          object Button4: TButton
+            Left = 0
+            Top = 72
+            Width = 81
+            Height = 25
+            Caption = 'DFT'
+            TabOrder = 3
+            OnClick = Button4Click
+          end
+          object Button9: TButton
+            Left = 0
+            Top = 40
+            Width = 81
+            Height = 25
+            Caption = 'BPF'
+            TabOrder = 4
+            OnClick = Button9Click
+          end
+          object Button11: TButton
+            Left = 0
+            Top = 280
+            Width = 81
+            Height = 25
+            Caption = 'Clear'
+            TabOrder = 5
+            OnClick = Button11Click
+          end
+          object Button10: TButton
+            Left = 0
+            Top = 144
+            Width = 81
+            Height = 25
+            Caption = 'Button10'
+            TabOrder = 6
+            OnClick = Button10Click
+          end
+          object Button17: TButton
+            Left = 0
+            Top = 176
+            Width = 81
+            Height = 25
+            Caption = 'Button17'
+            TabOrder = 7
+            OnClick = Button17Click
+          end
+        end
+        object TabSheet4: TTabSheet
+          Caption = 'STFT'
+          ImageIndex = 1
+          object Button16: TButton
+            Left = 0
+            Top = 56
+            Width = 81
+            Height = 25
+            Caption = 'STFT'
+            TabOrder = 0
+            OnClick = Button16Click
+          end
+          object Chart7: TChart
+            Left = 88
+            Top = 8
+            Width = 753
+            Height = 353
+            Legend.Visible = False
+            Title.Font.Color = clBlack
+            Title.Text.Strings = (
+              'Short Time Fourier Transform')
+            BottomAxis.PositionUnits = muPixels
+            BottomAxis.Title.Caption = 'Time (s)'
+            BottomAxis.Title.Font.Shadow.Color = clBlack
+            BottomAxis.Title.Visible = False
+            Chart3DPercent = 55
+            DepthTopAxis.Title.Angle = 90
+            DepthTopAxis.Title.Caption = 'Frequency (Hz)'
+            DepthTopAxis.Title.Visible = False
+            DepthTopAxis.Visible = True
+            LeftAxis.Visible = False
+            View3DOptions.Elevation = 270
+            View3DOptions.HorizOffset = 11
+            View3DOptions.Orthogonal = False
+            View3DOptions.Perspective = 0
+            View3DOptions.Rotation = 360
+            View3DOptions.VertOffset = 4
+            View3DOptions.Zoom = 92
+            TabOrder = 1
+            ColorPaletteIndex = 13
+            object Series19: TSurfaceSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              Pen.Visible = False
+              PaletteStyle = psStrong
+              SideBrush.Color = clWhite
+              SideBrush.Style = bsClear
+              UseColorRange = False
+              UsePalette = True
+              XValues.Name = 'X'
+              XValues.Order = loNone
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+              ZValues.Name = 'Z'
+              ZValues.Order = loNone
+            end
+          end
+          object RadioButton3: TRadioButton
+            Left = 8
+            Top = 8
+            Width = 65
+            Height = 17
+            Caption = 'C3'
+            Checked = True
+            TabOrder = 2
+            TabStop = True
+          end
+          object RadioButton4: TRadioButton
+            Left = 8
+            Top = 32
+            Width = 57
+            Height = 17
+            Caption = 'C4'
+            TabOrder = 3
+          end
+        end
+        object TabSheet5: TTabSheet
+          Caption = 'Squaring and MAV'
+          ImageIndex = 2
+          object Button14: TButton
+            Left = 0
+            Top = 8
+            Width = 81
+            Height = 25
+            Caption = 'SQR - MAV'
+            TabOrder = 0
+            OnClick = Button14Click
+          end
+          object Chart4: TChart
+            Left = 88
+            Top = 8
+            Width = 753
+            Height = 161
+            Legend.CheckBoxes = True
+            Title.Font.Color = clBlack
+            Title.Text.Strings = (
+              'Band Pass Filter')
+            BottomAxis.Grid.Visible = False
+            BottomAxis.Title.Caption = 'Time (s)'
+            LeftAxis.Grid.Visible = False
+            LeftAxis.Title.Caption = 'Amplitude ('#181'V)'
+            View3D = False
+            TabOrder = 1
+            object Series11: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              Title = 'C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series12: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clTeal
+              Title = 'C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+          end
+          object Chart5: TChart
+            Left = 88
+            Top = 176
+            Width = 753
+            Height = 169
+            Legend.CheckBoxes = True
+            Title.Font.Color = clBlack
+            Title.Text.Strings = (
+              'Squaring and MAV')
+            BottomAxis.Grid.Visible = False
+            BottomAxis.Title.Caption = 'Time (s)'
+            LeftAxis.Grid.Visible = False
+            LeftAxis.Title.Caption = 'Amplitude'
+            View3D = False
+            TabOrder = 2
+            object Series13: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clGray
+              Title = 'SQR-C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series14: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clGray
+              Title = 'SQR-C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series15: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              Title = 'MAV-C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series16: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clRed
+              Title = 'MAV-C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+          end
+        end
+        object TabSheet6: TTabSheet
+          Caption = 'ERD/ERS'
+          ImageIndex = 3
+          object Button15: TButton
+            Left = 0
+            Top = 208
+            Width = 89
+            Height = 49
+            Caption = 'ERD/ERS'
+            TabOrder = 0
+            OnClick = Button15Click
+          end
+          object Chart6: TChart
+            Left = 0
+            Top = 8
+            Width = 841
+            Height = 185
+            Legend.CheckBoxes = True
+            Title.Font.Color = clBlack
+            Title.Text.Strings = (
+              'ERD/ERS')
+            BottomAxis.Grid.Visible = False
+            BottomAxis.Title.Caption = 'Time (s)'
+            LeftAxis.Grid.Visible = False
+            LeftAxis.Title.Caption = 'Percentage (%)'
+            View3D = False
+            TabOrder = 1
+            object Series17: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              Title = 'C3'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series18: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = 8421440
+              Title = 'C4'
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+            object Series20: TLineSeries
+              Marks.Arrow.Visible = True
+              Marks.Callout.Brush.Color = clBlack
+              Marks.Callout.Arrow.Visible = True
+              Marks.Visible = False
+              SeriesColor = clBlack
+              ShowInLegend = False
+              LinePen.Width = 2
+              Pointer.InflateMargins = True
+              Pointer.Style = psRectangle
+              Pointer.Visible = False
+              XValues.Name = 'X'
+              XValues.Order = loAscending
+              YValues.Name = 'Y'
+              YValues.Order = loNone
+            end
+          end
+          object GroupBox6: TGroupBox
+            Left = 96
+            Top = 200
+            Width = 337
+            Height = 57
+            Caption = 'ERD/ERS Value'
+            TabOrder = 2
+            object Label11: TLabel
+              Left = 8
+              Top = 24
+              Width = 13
+              Height = 13
+              Caption = 'C3'
+            end
+            object Label12: TLabel
+              Left = 176
+              Top = 24
+              Width = 13
+              Height = 13
+              Caption = 'C4'
+            end
+            object Edit8: TEdit
+              Left = 200
+              Top = 20
+              Width = 121
+              Height = 21
+              TabOrder = 0
+              Text = 'Edit8'
+            end
+            object Edit7: TEdit
+              Left = 32
+              Top = 20
+              Width = 121
+              Height = 21
+              TabOrder = 1
+              Text = 'Edit7'
+            end
+          end
+          object GroupBox7: TGroupBox
+            Left = 440
+            Top = 200
+            Width = 185
+            Height = 57
+            Caption = 'Command Incicator'
+            TabOrder = 3
+            object Label13: TLabel
+              Left = 8
+              Top = 24
+              Width = 38
+              Height = 13
+              Caption = 'Label13'
+              Visible = False
+            end
+          end
+        end
+      end
+    end
+  end
+  object Button12: TButton
+    Left = 16
+    Top = 368
+    Width = 81
+    Height = 49
+    Caption = 'EXIT'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    OnClick = Button12Click
+  end
+  object ComPort1: TComPort
+    BaudRate = br115200
+    Port = 'COM7'
+    Parity.Bits = prNone
+    StopBits = sbOneStopBit
+    DataBits = dbEight
+    Events = [evRxChar, evTxEmpty, evRxFlag, evRing, evBreak, evCTS, evDSR, evError, evRLSD, evRx80Full]
+    FlowControl.OutCTSFlow = False
+    FlowControl.OutDSRFlow = False
+    FlowControl.ControlDTR = dtrDisable
+    FlowControl.ControlRTS = rtsDisable
+    FlowControl.XonXoffOut = False
+    FlowControl.XonXoffIn = False
+    StoredProps = [spBasic]
+    TriggersOnRxChar = True
+    OnRxChar = ComPort1RxChar
+    Left = 776
+    Top = 400
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 808
+    Top = 400
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 840
+    Top = 400
+  end
+end
