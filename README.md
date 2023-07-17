@@ -1,5 +1,5 @@
 # Thesis
-DESIGN OF ANKLE PROSTHESIS WITH BRAIN COMPUTER INTERFACE COMMANDS BASED ON ELECTROENCEPHALOGRAPH FOR TRANSTIBIAL AMPUTEES
+Design of Ankle Prosthesis with Brain-Computer Interface Commands Based on Electroenchepalograph for Transtibial Amputees
 
 Amputation is removing or severing a body part, such as a finger, arm, or leg. 
 Amputations are usually performed to treat a condition or disease. 
